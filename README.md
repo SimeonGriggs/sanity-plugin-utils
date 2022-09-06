@@ -18,7 +18,7 @@ Handy hooks and clever components for Sanity Studio v3
 
 ### useListeningQuery()
 
-Sanity's real-time APIs power excellent editorial experiences. Your plugins should respond to other users collaborating on documents in real time. This hook is a convenient way to perform a GROQ query, with `loading` and `error` states.
+Sanity's real-time APIs power excellent editorial experiences. Your plugins should respond to other users collaborating on documents in real time. This hook is a convenient way to perform a GROQ query that responds to changes, along with built-in `loading` and `error` states.
 
 The `data` variable will be constantly updated as changes are made to the data returned by your query. You can also pass in initial data so that it is set in the first render.
 
