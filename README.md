@@ -27,7 +27,7 @@ import {useListeningQuery} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
   const {data, loading, error} = useListeningQuery(`*[_type == $type]`, {
-    params: {type: 'product'},
+    params: {type: 'pet'},
     initialData: [],
   })
 
@@ -42,9 +42,9 @@ export default function DocumentList() {
   return (
     <Stack>
       {data?.length > 0 ? (
-        data.map((doc) => <Card key={doc._id}>{doc.title}</Card>)
+        data.map((pet) => <Card key={pet._id}>{pet.title}</Card>)
       ) : (
-        <Feedback>No documents found</Feedback>
+        <Feedback>No Pets found</Feedback>
       )}
     </Stack>
   )
