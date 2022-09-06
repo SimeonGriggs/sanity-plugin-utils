@@ -78,7 +78,27 @@ export default function DocumentList() {
 Component for consistently displaying feedback in a card with a title, text and an icon.
 
 ```jsx
-import {Feedback} from 'sanity-plugin-utils'
+import {Feedback, useListeningQuery} from 'sanity-plugin-utils'
+
+export default function DocumentList() {
+  const {data, loading, error} = useListeningQuery(`*[_type == "task" && !complete]`)
+
+  if (loading) {
+    return <Feedback tone="primary" title="Please hold" description="Fetching tasks..." />
+  }
+
+  if (error) {
+    return (
+      <Feedback tone="critical" title="There was an error" description="Please try again later" />
+    )
+  }
+
+  return data?.length > 0 ? (
+    <Feedback tone="caution" title="There are unfinished tasks" description="Please get to work" />
+  ) : (
+    <Feedback tone="success" title="You're all done" description="You should feel accomplished" />
+  )
+}
 ```
 
 ### <UserSelectMenu />
@@ -87,6 +107,8 @@ A Menu component for searching and interacting with users. Requires Users to be 
 
 ```jsx
 import {UserSelectMenu} from 'sanity-plugin-utils'
+
+// TODO: Example
 ```
 
 ## License
