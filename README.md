@@ -73,7 +73,7 @@ export default function DocumentList() {
 }
 ```
 
-### <Feedback />
+### Feedback
 
 Component for consistently displaying feedback in a card with a title, text and an icon.
 
@@ -101,7 +101,44 @@ export default function DocumentList() {
 }
 ```
 
-### <UserSelectMenu />
+### Table, Row and Cell
+
+These components are all @sanity/ui Card's but with their HTML DOM elements and CSS updated to output and behave like tables.
+
+```jsx
+import {Table, Row, Cell} from 'sanity-plugin-utils'
+
+export default function Report(documents) {
+  return (
+    <Table>
+      <thead>
+        <Row>
+          <Cell>
+            <Text>Name</Text>
+          </Cell>
+          <Cell>
+            <Text>Price</Text>
+          </Cell>
+        </Row>
+      </thead>
+      <tbody>
+        {documents.map((doc) => (
+          <Row key={doc._id}>
+            <Cell>
+              <Text>{doc.title}</Text>
+            </Cell>
+            <Cell tone={doc.inStock ? `caution` : `primary`}>
+              <Text>{doc.price}</Text>
+            </Cell>
+          </Row>
+        ))}
+      </tbody>
+    </Table>
+  )
+}
+```
+
+### UserSelectMenu
 
 A Menu component for searching and interacting with users. Requires Users to be passed into the component. Will return an array of user `id`s.
 
