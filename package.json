@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A collection of useful Hooks and Components when creating Plugins",
   "author": "Simeon Griggs <simeon@sanity.io>",
   "license": "MIT",
@@ -60,14 +60,14 @@
     "typescript": "4.7.4",
     "@sanity/ui": "1.0.0-beta.32",
     "react": "^18.0.0",
-    "sanity": "dev-preview || 3.0.0-dev-preview.22"
+    "sanity": "dev-preview || 3.0.0-rc.0"
   },
   "peerDependencies": {
     "react-fast-compare": "^3.2.0",
     "rxjs": "^6.5.3",
     "@sanity/ui": "1.0.0-beta.32",
     "react": "^18.0.0",
-    "sanity": "dev-preview || 3.0.0-dev-preview.22"
+    "sanity": "dev-preview || 3.0.0-rc.0"
   },
   "bugs": {
     "url": "https://github.com/simeongriggs/sanity-plugin-utils/issues"
