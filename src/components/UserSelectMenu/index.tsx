@@ -1,7 +1,7 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useRef} from 'react'
 import {Box, Text, Menu, MenuItem, TextInput, Flex, Badge} from '@sanity/ui'
 import {AddCircleIcon, RemoveCircleIcon, RestoreIcon} from '@sanity/icons'
-import {UserAvatar} from 'sanity/_unstable'
+import {UserAvatar} from 'sanity'
 
 import {UserExtended} from '../../hooks/useProjectUsers'
 
