@@ -1,4 +1,4 @@
-> This is a **Sanity Studio v3** plugin.
+> This is exclusively a **Sanity Studio v3** plugin.
 
 # sanity-plugin-utils
 
