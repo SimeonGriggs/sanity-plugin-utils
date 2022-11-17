@@ -1,3 +1,5 @@
+> This is a **Sanity Studio v3** plugin.
+
 # sanity-plugin-utils
 
 ## Installation
@@ -16,7 +18,7 @@ yarn add sanity-plugin-utils
 
 Handy hooks and clever components for Sanity Studio v3
 
-### useListeningQuery()
+### `useListeningQuery()`
 
 Sanity's real-time APIs power excellent editorial experiences. Your plugins should respond to other users collaborating on documents in real time. This hook is a convenient way to perform a GROQ query that responds to changes, along with built-in `loading` and `error` states.
 
@@ -51,7 +53,7 @@ export default function DocumentList() {
 }
 ```
 
-### useProjectUsers()
+### `useProjectUsers()`
 
 Hook for getting extended details on all Users in the project. Such as name.
 
@@ -64,7 +66,9 @@ export default function DocumentList() {
   return (
     <Stack>
       {users?.length > 0 ? (
-        users.map((user) => <Profile key={user.id} {...user}>)
+        users.map((user) => (
+          <Profile key={user.id} {...user}>
+        ))
       ) : (
         <Spinner>
       )}
@@ -101,9 +105,9 @@ export default function DocumentList() {
 }
 ```
 
-### Table, Row and Cell
+### `Table`, `Row` and `Cell`
 
-These components are all @sanity/ui Card's but with their HTML DOM elements and CSS updated to output and behave like tables.
+These components are all `@sanity/ui` `Card`'s but with their HTML DOM elements and CSS updated to output and behave like tables.
 
 ```jsx
 import {Table, Row, Cell} from 'sanity-plugin-utils'
@@ -138,7 +142,7 @@ export default function Report(documents) {
 }
 ```
 
-### UserSelectMenu
+### `UserSelectMenu`
 
 A Menu component for searching and interacting with users. Requires Users to be passed into the component. Will return an array of user `id`s.
 
@@ -152,3 +156,22 @@ import {UserSelectMenu} from 'sanity-plugin-utils'
 
 MIT © Simeon Griggs
 See LICENSE
+
+## License
+
+[MIT](LICENSE) © Simeon Griggs
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
+
+### Release new version
+
+Run ["CI & Release" workflow](https://github.com/SimeonGriggs/sanity-plugin-utils/actions/workflows/main.yml).
+Make sure to select the main branch and check "Release new version".
+
+Semantic release will only release on configured branches, so it is safe to run release on any branch.
