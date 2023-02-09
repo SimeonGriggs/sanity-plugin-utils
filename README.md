@@ -61,7 +61,7 @@ Hook for getting extended details on all Users in the project. Such as name.
 import {useProjectUsers} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
-  const users = useProjectUsers()
+  const users = useProjectUsers({apiVersion: `2023-01-01`})
 
   return (
     <Stack>

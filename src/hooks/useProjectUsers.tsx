@@ -28,11 +28,15 @@ type UserResponse = {
   roles: UserRole[]
 }
 
+type HookConfig = {
+  apiVersion?: string
+}
+
 // Custom hook to fetch user details
 // Built-in hook doesn't fetch all user details
-export function useProjectUsers(): UserExtended[] {
+export function useProjectUsers({apiVersion}: HookConfig): UserExtended[] {
   const {currentUser} = useWorkspace()
-  const client = useClient()
+  const client = useClient({apiVersion: apiVersion ?? '2023-01-01'})
   const [users, setUsers] = useState([])
 
   useEffect(() => {
