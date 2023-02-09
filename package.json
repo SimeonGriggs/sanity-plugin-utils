@@ -18,10 +18,10 @@
   "author": "Simeon Griggs <simeon@sanity.io>",
   "exports": {
     ".": {
-      "types": "./lib/src/index.d.ts",
+      "types": "./lib/index.d.ts",
       "source": "./src/index.ts",
-      "import": "./lib/index.esm.js",
       "require": "./lib/index.js",
+      "import": "./lib/index.esm.js",
       "default": "./lib/index.esm.js"
     },
     "./package.json": "./package.json"
@@ -29,22 +29,26 @@
   "main": "./lib/index.js",
   "module": "./lib/index.esm.js",
   "source": "./src/index.ts",
-  "types": "./lib/src/index.d.ts",
+  "types": "./lib/index.d.ts",
   "files": [
-    "src",
     "lib",
-    "v2-incompatible.js",
-    "sanity.json"
+    "sanity.json",
+    "src",
+    "v2-incompatible.js"
   ],
   "scripts": {
+    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
     "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
     "clean": "rimraf lib",
+    "compile": "tsc --noEmit",
+    "eslint": "eslint --ext=.js,.jsx,.mjs,.ts,.tsx --quiet",
     "link-watch": "plugin-kit link-watch",
     "lint": "eslint .",
-    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
+    "lint:fix": "eslint . --quiet --fix",
     "prepare": "husky install",
     "prepublishOnly": "run-s build",
-    "watch": "pkg-utils watch --strict"
+    "watch": "pkg-utils watch --strict",
+    "format": "prettier --write --cache --ignore-unknown ."
   },
   "dependencies": {
     "@sanity/icons": "^2.2.2",
@@ -58,30 +62,35 @@
     "@sanity/plugin-kit": "^3.1.4",
     "@sanity/semantic-release-preset": "^4.0.0",
     "@sanity/ui": "^1.2.2",
+    "@types/react": "^18.0.27",
     "@types/styled-components": "^5.1.26",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-config-sanity": "^6.0.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "prettier-plugin-packagejson": "^2.3.0",
-    "react": "^18",
-    "rimraf": "^3.0.2",
-    "sanity": "^3.0.0",
-    "typescript": "^4.9.3"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.4",
+    "prettier-plugin-packagejson": "^2.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "rimraf": "^4.1.2",
+    "sanity": "^3.3.1",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@sanity/ui": "1.2.2",
     "react": "^18",
     "react-fast-compare": "^3.2.0",
     "rxjs": "^7.0.0",
-    "sanity": "^3.3.1"
+    "sanity": "^3"
   },
   "engines": {
     "node": ">=14"
