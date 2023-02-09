@@ -37,14 +37,14 @@
     "sanity.json"
   ],
   "scripts": {
-    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
-    "build": "pkg-utils build",
+    "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
     "clean": "rimraf lib",
     "link-watch": "plugin-kit link-watch",
     "lint": "eslint .",
+    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build",
-    "watch": "pkg-utils watch"
+    "prepublishOnly": "run-s build",
+    "watch": "pkg-utils watch --strict"
   },
   "dependencies": {
     "@sanity/icons": "^2.2.2",
