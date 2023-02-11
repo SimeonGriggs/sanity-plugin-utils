@@ -5,7 +5,10 @@ import {UserAvatar} from 'sanity'
 
 import {UserExtended} from '../../hooks/useProjectUsers'
 
-function searchUsers(users: UserExtended[], searchString: string): UserExtended[] {
+function searchUsers(
+  users: UserExtended[],
+  searchString: string
+): UserExtended[] {
   return users.filter((user) => {
     const displayName = (user.displayName || '').toLowerCase()
     if (displayName.startsWith(searchString)) return true
@@ -26,12 +29,18 @@ type UserSelectMenuProps = {
   onAdd: any
   onRemove: any
   onClear: any
-  open: boolean
   style?: React.CSSProperties
 }
 
 export function UserSelectMenu(props: UserSelectMenuProps) {
-  const {value = [], userList = [], onAdd, onRemove, onClear, style = {}} = props
+  const {
+    value = [],
+    userList = [],
+    onAdd,
+    onRemove,
+    onClear,
+    style = {},
+  } = props
   const [searchString, setSearchString] = React.useState('')
   const searchResults = searchUsers(userList || [], searchString)
 
@@ -106,7 +115,9 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
         />
       </Box>
 
-      {searchString && searchResults?.length === 0 && <MenuItem disabled text="No matches" />}
+      {searchString && searchResults?.length === 0 && (
+        <MenuItem disabled text="No matches" />
+      )}
 
       {searchResults &&
         searchResults.map((user) => (
