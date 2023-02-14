@@ -5,6 +5,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.2...v1.0.3) (2023-02-14)
+
+### Bug Fixes
+
+- add package lock ([9fa6fbd](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/9fa6fbdab763f0c4a6dd07941a762d369f18d084))
+- export 'UserExtended' ([41478c7](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/41478c77c0cf2d4a986354b828b16b81b4569c66))
+- merge ([f179917](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/f1799171b1df51cf4f8abc33d6d5b4a130f99eb3))
+- try yarn ([a6917dc](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/a6917dcac5e0257aa1a66512491ac30f6308ebdb))
+- update semver preset ([17f4a03](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/17f4a0307ef6b801e64ade60d4c766102f401080))
+
 ## [1.0.2](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.1...v1.0.2) (2023-02-09)
 
 ### Bug Fixes
