@@ -38,7 +38,7 @@ import {useListeningQuery} from 'sanity-plugin-utils'
 export default function DocumentList() {
   const {data, loading, error} = useListeningQuery(`*[_type == $type]`, {
     params: {type: 'pet'},
-    initialData: [],
+    initialValue: [],
   })
 
   if (loading) {
