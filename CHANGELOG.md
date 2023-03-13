@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.3...v1.1.0) (2023-03-13)
+
+### Features
+
+- new 'open in new pane' hook ([6381ec8](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/6381ec87d9741cdb9e1d2402587be4e87a68e91d))
+
 ## [1.0.3](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.2...v1.0.3) (2023-02-14)
 
 ### Bug Fixes
