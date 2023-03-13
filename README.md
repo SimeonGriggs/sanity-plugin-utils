@@ -85,6 +85,24 @@ export default function DocumentList() {
 }
 ```
 
+### useOpenInNewPane()
+
+Returns a function that will open a document in a new view pane, alongside the current view pane
+
+```tsx
+import {useOpenInNewPane} from 'sanity-plugin-utils'
+
+export default function SidePetOpener(pet: SanityDocument) {
+  const openInNewPane = useOpenInNewPane(pet._id, `pet`)
+
+  return (
+    <Button onClick={() => openInNewPane(pet._id)}>
+      {pet.title}
+    </Button>
+  )
+}
+```
+
 ### Feedback
 
 Component for consistently displaying feedback in a card with a title, text and an icon.
