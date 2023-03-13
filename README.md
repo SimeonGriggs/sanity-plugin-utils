@@ -93,10 +93,10 @@ Returns a function that will open a document in a new view pane, alongside the c
 import {useOpenInNewPane} from 'sanity-plugin-utils'
 
 export default function SidePetOpener(pet: SanityDocument) {
-  const openInNewPane = useOpenInNewPane(pet._id, `pet`)
+  const openInNewPane = useOpenInNewPane(pet._id, pet._type)
 
   return (
-    <Button onClick={() => openInNewPane(pet._id)}>
+    <Button onClick={() => openInNewPane()}>
       {pet.title}
     </Button>
   )
