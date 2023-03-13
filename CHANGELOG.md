@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.0...v1.1.1) (2023-03-13)
+
+### Bug Fixes
+
+- add docs, stop some builds ([c857d4b](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/c857d4b8a412a47da139a0094c4377d2e369079f))
+
 ## [1.1.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.3...v1.1.0) (2023-03-13)
 
 ### Features
