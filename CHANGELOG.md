@@ -5,6 +5,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.1...v1.2.0) (2023-03-16)
+
+### Features
+
+- rowspan + colspan ([f4c026c](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/f4c026c40deb6c87749eb18fb7413bc9d2083ce5))
+
+### Bug Fixes
+
+- update example ([739982a](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/739982a5d7795f45ad5912b42d808b0ca0345f05))
+
 ## [1.1.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.0...v1.1.1) (2023-03-13)
 
 ### Bug Fixes
