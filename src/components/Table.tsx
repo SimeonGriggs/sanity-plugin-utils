@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react'
+import {PropsWithChildren} from 'react'
 import styled, {css} from 'styled-components'
 import {Card, CardProps} from '@sanity/ui'
 
@@ -70,7 +70,12 @@ const StyledCell = styled(CellWrapper)(
     `
 )
 
-type TableCellProps = PropsWithChildren<CardProps>
+type TableCellProps = PropsWithChildren<
+  CardProps & {
+    colSpan?: number
+    rowSpan?: number
+  }
+>
 
 export function Cell(props: TableCellProps) {
   const {children, ...rest} = props
