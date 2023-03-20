@@ -23,13 +23,30 @@ function searchUsers(
   })
 }
 
+type Labels = {
+  addMe?: string
+  removeMe?: string
+  clear?: string
+  searchPlaceholder?: string
+  notFound?: string
+}
+
 type UserSelectMenuProps = {
   value: string[]
   userList: UserExtended[]
-  onAdd: any
-  onRemove: any
-  onClear: any
+  onAdd: (userId: string) => void
+  onRemove: (userId: string) => void
+  onClear: () => void
+  labels?: Labels
   style?: React.CSSProperties
+}
+
+const LABELS: Labels = {
+  addMe: 'Assign myself',
+  removeMe: 'Unassign myself',
+  clear: 'Clear assignees',
+  searchPlaceholder: 'Search users',
+  notFound: 'No users found',
 }
 
 export function UserSelectMenu(props: UserSelectMenuProps) {
@@ -41,6 +58,8 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
     onClear,
     style = {},
   } = props
+  const labels = props?.labels ? {...props.labels, ...LABELS} : LABELS
+
   const [searchString, setSearchString] = React.useState('')
   const searchResults = searchUsers(userList || [], searchString)
 
@@ -49,7 +68,7 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
 
   // Focus input on open
   // TODO: Fix focus, it gets immediately taken away
-  const input = useRef<HTMLInputElement>()
+  const input = useRef<HTMLInputElement>(null)
   // useEffect(() => {
   //   if (open && input?.current) {
   //     input.current.focus()
@@ -86,14 +105,14 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
           disabled={!me}
           onClick={handleUnassignMyself}
           icon={RemoveCircleIcon}
-          text="Unassign myself"
+          text={labels.removeMe}
         />
       ) : (
         <MenuItem
           tone="positive"
           onClick={handleAssignMyself}
           icon={AddCircleIcon}
-          text="Assign myself"
+          text={labels.addMe}
         />
       )}
 
@@ -102,21 +121,20 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
         disabled={value.length === 0}
         onClick={handleClearAssigneesClick}
         icon={RestoreIcon}
-        text="Clear assignees"
+        text={labels.clear}
       />
 
       <Box padding={1}>
         <TextInput
-          // @ts-ignore TODO: Satisfy ref
           ref={input}
           onChange={handleSearchChange}
-          placeholder="Search members"
+          placeholder={labels.searchPlaceholder}
           value={searchString}
         />
       </Box>
 
       {searchString && searchResults?.length === 0 && (
-        <MenuItem disabled text="No matches" />
+        <MenuItem disabled text={labels.notFound} />
       )}
 
       {searchResults &&
