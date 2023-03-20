@@ -170,12 +170,25 @@ export default function Report(documents) {
 
 ### `UserSelectMenu`
 
-A Menu component for searching and interacting with users. Requires Users to be passed into the component. Will return an array of user `id`s.
+A Menu component for searching and interacting with users. Requires Users to be passed into the component. 
 
 ```jsx
 import {UserSelectMenu} from 'sanity-plugin-utils'
 
-// TODO: Example
+export default function Report() {
+  const users = useProjectUsers({apiVersion: `2023-01-01`})
+  const [selectedUsers, setSelectedUsers] = useState([])
+  
+  return (
+    <UserSelectMenu
+      userList={users}
+      value={selectedUsers}
+      onAdd={(id) => selectedUsers((current) => [...current, id])}
+      onRemove={(id) => setSelectedUsers((current) => current.filter((id) => id !== id))}
+      onClear={() => setSelectedUsers([])}
+    >
+  )
+}
 ```
 
 ## License
