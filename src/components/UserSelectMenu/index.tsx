@@ -58,7 +58,7 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
     onClear,
     style = {},
   } = props
-  const labels = props?.labels ? {...props.labels, ...LABELS} : LABELS
+  const labels = props?.labels ? {...LABELS, ...props.labels} : LABELS
 
   const [searchString, setSearchString] = React.useState('')
   const searchResults = searchUsers(userList || [], searchString)
