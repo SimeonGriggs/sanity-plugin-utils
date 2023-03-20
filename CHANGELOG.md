@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.2.0...v1.3.0) (2023-03-20)
+
+### Features
+
+- programmable labels ([3499b05](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/3499b05b468f0d7965ceac2f79a11673db6c4c42))
+
 ## [1.2.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.1...v1.2.0) (2023-03-16)
 
 ### Features
