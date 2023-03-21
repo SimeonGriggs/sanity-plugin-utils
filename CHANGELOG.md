@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.1...v1.3.2) (2023-03-21)
+
+### Bug Fixes
+
+- sanity/ui version ([4da7a82](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/4da7a82c0b943b7c57f1a0bc649b62b49bfbd3fd))
+
 ## [1.3.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.0...v1.3.1) (2023-03-20)
 
 ### Bug Fixes
