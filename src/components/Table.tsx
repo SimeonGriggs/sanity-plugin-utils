@@ -15,6 +15,7 @@ const StyledTable = styled(TableWrapper)(
     css`
       display: table;
       width: 100%;
+      border-collapase: collapse;
 
       &:not([hidden]) {
         display: table;
