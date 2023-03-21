@@ -15,10 +15,11 @@ const StyledTable = styled(TableWrapper)(
     css`
       display: table;
       width: 100%;
-      border-collapase: collapse;
+      border-collapse: collapse;
 
       &:not([hidden]) {
         display: table;
+        border-collapse: collapse;
       }
     `
 )
