@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.2...v1.4.0) (2023-03-21)
+
+### Features
+
+- collapse borders ([b79ee6f](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/b79ee6f58afd97d3ab31cd4f0a8d0a401fbca04e))
+
 ## [1.3.2](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.1...v1.3.2) (2023-03-21)
 
 ### Bug Fixes
