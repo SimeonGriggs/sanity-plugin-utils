@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.4.0...v1.4.1) (2023-03-21)
+
+### Bug Fixes
+
+- spelling ([d63f25c](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/d63f25c9020c0cdc29b99be819caa4936c0c3f67))
+
 ## [1.4.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.2...v1.4.0) (2023-03-21)
 
 ### Features
