@@ -1,14 +1,6 @@
-> This is a **Sanity Studio v3** plugin.
-
-## Installation
-
-```sh
-npm install sanity-plugin-utils
-```
-
-> This is exclusively a **Sanity Studio v3** plugin.
-
 # sanity-plugin-utils
+
+Handy hooks and clever components for Sanity Studio v3.
 
 ## Installation
 
@@ -24,19 +16,17 @@ yarn add sanity-plugin-utils
 
 ## Usage
 
-Handy hooks and clever components for Sanity Studio v3
-
 ### `useListeningQuery()`
 
 Sanity's real-time APIs power excellent editorial experiences. Your plugins should respond to other users collaborating on documents in real time. This hook is a convenient way to perform a GROQ query that responds to changes, along with built-in `loading` and `error` states.
 
 The `data` variable will be constantly updated as changes are made to the data returned by your query. You can also pass in initial data so that it is set in the first render.
 
-```jsx
+```tsx
 import {useListeningQuery} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
-  const {data, loading, error} = useListeningQuery(`*[_type == $type]`, {
+  const {data, loading, error} = useListeningQuery<SanityDocument[]>(`*[_type == $type]`, {
     params: {type: 'pet'},
     initialValue: [],
   })
@@ -65,7 +55,7 @@ export default function DocumentList() {
 
 Hook for getting extended details on all Users in the project. Such as name.
 
-```jsx
+```tsx
 import {useProjectUsers} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
@@ -103,11 +93,51 @@ export default function SidePetOpener(pet: SanityDocument) {
 }
 ```
 
+### useImageUrlBuilder()
+
+Returns an [image URL builder](https://www.sanity.io/docs/image-url) configured with the current workspace's Project ID and Dataset.
+
+Useful if you have many images in the one component.
+
+```tsx
+import {useImageUrlBuilder} from 'sanity-plugin-utils'
+
+export default function PetPics(pet: SanityDocument) {
+  const builder = useImageUrlBuilder({apiVersion: `2023-01-01`})
+
+  return (
+    <ul>
+      {pet.pics.map((pic) => (
+        <li key={pic._key}>
+          <img src={builder.source(pic).width(200).height(200).url()} alt={pic.altText} />
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+### useImageUrlBuilderImage()
+
+As above, but pre-configured with an image source. 
+
+Useful if you only have one image in your component.
+
+```tsx
+import {useImageUrlBuilderImage} from 'sanity-plugin-utils'
+
+export default function PetPic(pet: SanityDocument) {
+  const image = useImageUrlBuilderImage(pet.image, {apiVersion: `2023-01-01`})
+
+  return <img src={image.width(200).height(200).url()} alt={pet.name} />
+}
+```
+
 ### Feedback
 
 Component for consistently displaying feedback in a card with a title, text and an icon.
 
-```jsx
+```tsx
 import {Feedback, useListeningQuery} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
@@ -135,7 +165,7 @@ export default function DocumentList() {
 
 These components are all `@sanity/ui` `Card`'s but with their HTML DOM elements and CSS updated to output and behave like tables.
 
-```jsx
+```tsx
 import {Table, Row, Cell} from 'sanity-plugin-utils'
 
 export default function Report(documents) {
@@ -172,7 +202,7 @@ export default function Report(documents) {
 
 A Menu component for searching and interacting with users. Requires Users to be passed into the component. 
 
-```jsx
+```tsx
 import {UserSelectMenu} from 'sanity-plugin-utils'
 
 export default function Report() {
