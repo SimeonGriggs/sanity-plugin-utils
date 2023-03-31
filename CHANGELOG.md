@@ -5,6 +5,58 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.4.0...v1.4.1) (2023-03-21)
+
+### Bug Fixes
+
+- spelling ([d63f25c](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/d63f25c9020c0cdc29b99be819caa4936c0c3f67))
+
+## [1.4.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.2...v1.4.0) (2023-03-21)
+
+### Features
+
+- collapse borders ([b79ee6f](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/b79ee6f58afd97d3ab31cd4f0a8d0a401fbca04e))
+
+## [1.3.2](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.1...v1.3.2) (2023-03-21)
+
+### Bug Fixes
+
+- sanity/ui version ([4da7a82](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/4da7a82c0b943b7c57f1a0bc649b62b49bfbd3fd))
+
+## [1.3.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.3.0...v1.3.1) (2023-03-20)
+
+### Bug Fixes
+
+- proper order ([cfecd5a](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/cfecd5a902ea87a2f23201afd87599f88a8e03d4))
+
+## [1.3.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.2.0...v1.3.0) (2023-03-20)
+
+### Features
+
+- programmable labels ([3499b05](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/3499b05b468f0d7965ceac2f79a11673db6c4c42))
+
+## [1.2.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.1...v1.2.0) (2023-03-16)
+
+### Features
+
+- rowspan + colspan ([f4c026c](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/f4c026c40deb6c87749eb18fb7413bc9d2083ce5))
+
+### Bug Fixes
+
+- update example ([739982a](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/739982a5d7795f45ad5912b42d808b0ca0345f05))
+
+## [1.1.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.1.0...v1.1.1) (2023-03-13)
+
+### Bug Fixes
+
+- add docs, stop some builds ([c857d4b](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/c857d4b8a412a47da139a0094c4377d2e369079f))
+
+## [1.1.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.3...v1.1.0) (2023-03-13)
+
+### Features
+
+- new 'open in new pane' hook ([6381ec8](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/6381ec87d9741cdb9e1d2402587be4e87a68e91d))
+
 ## [1.0.3](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.0.2...v1.0.3) (2023-02-14)
 
 ### Bug Fixes
