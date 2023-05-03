@@ -1,20 +1,13 @@
 import {useEffect, useState, useRef} from 'react'
 import {catchError, distinctUntilChanged} from 'rxjs/operators'
 import isEqual from 'react-fast-compare'
-import {useDocumentStore} from 'sanity'
+import {ListenQueryOptions, ListenQueryParams, useDocumentStore} from 'sanity'
 import {Subscription} from 'rxjs'
-
-type Params = Record<string, string | number | boolean | string[]>
-
-interface ListenQueryOptions {
-  tag?: string
-  apiVersion?: string
-}
 
 type Value = any
 
 interface Config<V> {
-  params: Params
+  params?: ListenQueryParams
   options?: ListenQueryOptions
   initialValue?: null | V
 }
@@ -27,7 +20,7 @@ interface Return<V> {
 }
 
 const DEFAULT_PARAMS = {}
-const DEFAULT_OPTIONS = {apiVersion: `v2022-05-09`}
+const DEFAULT_OPTIONS = {apiVersion: `v2023-05-01`}
 const DEFAULT_INITIAL_VALUE = null
 
 export function useListeningQuery<V>(
@@ -60,7 +53,9 @@ export function useListeningQuery<V>(
           })
         )
         .subscribe((documents) => {
-          setData((current: Value) => (isEqual(current, documents) ? current : documents))
+          setData((current: Value) =>
+            isEqual(current, documents) ? current : documents
+          )
           setLoading(false)
           setError(false)
         })
