@@ -12,9 +12,10 @@ interface Config<V> {
   initialValue?: null | V
 }
 
-interface Return<V> {
+// make generic optional
+interface Return<V = Value> {
   loading: boolean
-  error: boolean
+  error: boolean | unknown | ProgressEvent
   data: null | V
   initialValue?: Value
 }
@@ -31,38 +32,49 @@ export function useListeningQuery<V>(
     initialValue = DEFAULT_INITIAL_VALUE,
   }: Config<V>
 ): Return<V> {
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-  const [data, setData] = useState(initialValue)
+  const [loading, setLoading] = useState<Return['loading']>(true)
+  const [error, setError] = useState<Return['error']>(false)
+  const [data, setData] = useState<Return['data']>(initialValue)
   const subscription = useRef<null | Subscription>(null)
   const documentStore = useDocumentStore()
 
   useEffect(() => {
-    if (query) {
-      subscription.current = documentStore
-        .listenQuery(query, params, options)
-        .pipe(
-          distinctUntilChanged(isEqual),
-          catchError((err) => {
-            console.error(err)
-            setError(err)
-            setLoading(false)
-            setData(null)
+    if (query && !error) {
+      try {
+        subscription.current = documentStore
+          .listenQuery(query, params, options)
+          .pipe(
+            distinctUntilChanged(isEqual),
+            catchError((err) => {
+              console.error(err)
+              setError(err)
+              setLoading(false)
+              setData(null)
 
-            return err
-          })
-        )
-        .subscribe((documents) => {
-          setData((current: Value) =>
-            isEqual(current, documents) ? current : documents
+              return err
+            })
           )
-          setLoading(false)
-          setError(false)
-        })
+          .subscribe((documents) => {
+            setData((current: Value) =>
+              isEqual(current, documents) ? current : documents
+            )
+            setLoading(false)
+            setError(false)
+          })
+      } catch (err) {
+        console.error(err)
+        setLoading(false)
+        setError(err)
+      }
+    }
+
+    // Unsubscribe when an error occurs
+    if (error && subscription.current) {
+      subscription.current.unsubscribe()
     }
 
     return () => subscription?.current?.unsubscribe()
-  }, [query, params, options, documentStore])
+  }, [query, error, params, options, documentStore])
 
   return {data, loading, error}
 }
