@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.0...v1.6.1) (2023-05-04)
+
+### Bug Fixes
+
+- stop retrying on error ([7b739ac](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/7b739ac24472d129c6186faea5a956053f354b8a))
+
 ## [1.6.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.5.0...v1.6.0) (2023-05-03)
 
 ### Features
