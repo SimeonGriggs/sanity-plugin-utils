@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from 'react'
+import {useEffect, useState, useRef, useMemo} from 'react'
 import {catchError, distinctUntilChanged} from 'rxjs/operators'
 import isEqual from 'react-fast-compare'
 import {ListenQueryOptions, ListenQueryParams, useDocumentStore} from 'sanity'
@@ -24,6 +24,16 @@ const DEFAULT_PARAMS = {}
 const DEFAULT_OPTIONS = {apiVersion: `v2023-05-01`}
 const DEFAULT_INITIAL_VALUE = null
 
+function useParams(
+  params?: undefined | null | ListenQueryParams | ListenQueryOptions
+): ListenQueryParams {
+  const stringifiedParams = useMemo(
+    () => JSON.stringify(params || {}),
+    [params]
+  )
+  return useMemo(() => JSON.parse(stringifiedParams), [stringifiedParams])
+}
+
 export function useListeningQuery<V>(
   query: string | {fetch: string; listen: string},
   {
@@ -35,14 +45,17 @@ export function useListeningQuery<V>(
   const [loading, setLoading] = useState<Return['loading']>(true)
   const [error, setError] = useState<Return['error']>(false)
   const [data, setData] = useState<Return['data']>(initialValue)
+  const memoParams = useParams(params)
+  const memoOptions = useParams(options)
+
   const subscription = useRef<null | Subscription>(null)
   const documentStore = useDocumentStore()
 
   useEffect(() => {
-    if (query && !error) {
+    if (query && !error && !subscription.current) {
       try {
         subscription.current = documentStore
-          .listenQuery(query, params, options)
+          .listenQuery(query, memoParams, memoOptions)
           .pipe(
             distinctUntilChanged(isEqual),
             catchError((err) => {
@@ -73,8 +86,13 @@ export function useListeningQuery<V>(
       subscription.current.unsubscribe()
     }
 
-    return () => subscription?.current?.unsubscribe()
-  }, [query, error, params, options, documentStore])
+    return () => {
+      if (subscription.current) {
+        subscription?.current?.unsubscribe()
+        subscription.current = null
+      }
+    }
+  }, [query, error, memoParams, memoOptions, documentStore])
 
   return {data, loading, error}
 }
