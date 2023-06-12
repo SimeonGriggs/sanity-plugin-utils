@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.1...v1.6.2) (2023-06-12)
+
+### Bug Fixes
+
+- memoize params + options ([71d93c0](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/71d93c00d93a215f6afbb967ba6528734bcd21a9))
+
 ## [1.6.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.0...v1.6.1) (2023-05-04)
 
 ### Bug Fixes
