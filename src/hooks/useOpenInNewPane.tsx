@@ -1,5 +1,5 @@
 import React from 'react'
-import {usePaneRouter} from 'sanity/desk'
+import {usePaneRouter} from 'sanity/structure'
 import {RouterContext} from 'sanity/router'
 
 export function useOpenInNewPane(id?: string, type?: string) {
