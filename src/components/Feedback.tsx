@@ -1,5 +1,5 @@
-import React from 'react'
 import {Box, Card, CardTone, Flex, Stack, Text} from '@sanity/ui'
+import React from 'react'
 
 type FeedbackChildren = {
   children?: React.ReactNode
@@ -23,7 +23,10 @@ const DEFAULT_PROPS: FeedbackProps = {
 }
 
 export function Feedback(props: FeedbackProps) {
-  const {title, description, icon, tone, children} = {...DEFAULT_PROPS, ...props}
+  const {title, description, icon, tone, children} = {
+    ...DEFAULT_PROPS,
+    ...props,
+  }
 
   return (
     <Card tone={tone} padding={4} radius={3} border>

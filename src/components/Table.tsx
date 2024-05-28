@@ -11,17 +11,16 @@ const TableWrapper = (props: CardProps = {}) => {
 }
 
 const StyledTable = styled(TableWrapper)(
-  () =>
-    css`
-      display: table;
-      width: 100%;
-      border-collapse: collapse;
+  () => css`
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
 
-      &:not([hidden]) {
-        display: table;
-        border-collapse: collapse;
-      }
-    `
+    &:not([hidden]) {
+      display: table;
+      border-collapse: collapse;
+    }
+  `
 )
 
 type TableProps = PropsWithChildren<CardProps>
@@ -38,14 +37,13 @@ const RowWrapper = (props: CardProps = {}) => {
 }
 
 const StyledRow = styled(RowWrapper)(
-  () =>
-    css`
-      display: table-row;
+  () => css`
+    display: table-row;
 
-      &:not([hidden]) {
-        display: table-row;
-      }
-    `
+    &:not([hidden]) {
+      display: table-row;
+    }
+  `
 )
 
 type TableRowProps = PropsWithChildren<CardProps>
@@ -62,14 +60,13 @@ const CellWrapper = (props = {}) => {
 }
 
 const StyledCell = styled(CellWrapper)(
-  () =>
-    css`
-      display: table-cell;
+  () => css`
+    display: table-cell;
 
-      &:not([hidden]) {
-        display: table-cell;
-      }
-    `
+    &:not([hidden]) {
+      display: table-cell;
+    }
+  `
 )
 
 type TableCellProps = PropsWithChildren<
