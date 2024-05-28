@@ -1,10 +1,10 @@
-import {useEffect, useState, useRef, useMemo} from 'react'
-import {catchError, distinctUntilChanged} from 'rxjs/operators'
+import {useEffect, useMemo, useRef, useState} from 'react'
 import isEqual from 'react-fast-compare'
-import {ListenQueryOptions, ListenQueryParams, useDocumentStore} from 'sanity'
 import {Subscription} from 'rxjs'
+import {catchError, distinctUntilChanged} from 'rxjs/operators'
+import {ListenQueryOptions, ListenQueryParams, useDocumentStore} from 'sanity'
 
-type Value = any
+type Value = unknown
 
 interface Config<V> {
   params?: ListenQueryParams
@@ -16,7 +16,7 @@ interface Config<V> {
 interface Return<V = Value> {
   loading: boolean
   error: boolean | unknown | ProgressEvent
-  data: null | V
+  data: unknown | V
   initialValue?: Value
 }
 
