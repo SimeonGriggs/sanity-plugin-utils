@@ -32,8 +32,8 @@ type HookConfig = {
   apiVersion?: string
 }
 
-function chunkArray(array: any[], size: number) {
-  const chunks = []
+function chunkArray<T>(array: T[], size: number): T[][] {
+  const chunks: T[][] = []
   for (let i = 0; i < array.length; i += size) {
     chunks.push(array.slice(i, i + size))
   }
