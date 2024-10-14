@@ -5,6 +5,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.6](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.5...v1.6.6) (2024-10-14)
+
+### Bug Fixes
+
+- **hooks:** optimize useProjectUsers hook ([fb77918](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/fb7791882a97c276691af8234207ebb98c7e95a1))
+- **type:** use proper types ([44b661e](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/44b661ef17505f243104353f5f858f43c6f37507))
+
 ## [1.6.5](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.4...v1.6.5) (2024-05-28)
 
 ### Bug Fixes
