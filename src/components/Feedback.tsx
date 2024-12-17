@@ -1,21 +1,21 @@
 import {Box, Card, CardTone, Flex, Stack, Text} from '@sanity/ui'
-import React from 'react'
+import type {ReactNode} from 'react'
 
 type FeedbackChildren = {
-  children?: React.ReactNode
+  children?: ReactNode
   title?: never
   description?: never
 }
 
 type FeedbackTextProps = {
   title?: string
-  description?: React.ReactNode
+  description?: ReactNode
   children?: never
 }
 
 type FeedbackProps = (FeedbackChildren | FeedbackTextProps) & {
   tone?: CardTone
-  icon?: React.ReactNode
+  icon?: ReactNode
 }
 
 const DEFAULT_PROPS: FeedbackProps = {

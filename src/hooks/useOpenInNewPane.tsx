@@ -1,12 +1,12 @@
-import React from 'react'
-import {usePaneRouter} from 'sanity/structure'
+import {useCallback, useContext} from 'react'
 import {RouterContext} from 'sanity/router'
+import {usePaneRouter} from 'sanity/structure'
 
 export function useOpenInNewPane(id?: string, type?: string) {
-  const routerContext = React.useContext(RouterContext)
+  const routerContext = useContext(RouterContext)
   const {routerPanesState, groupIndex} = usePaneRouter()
 
-  const openInNewPane = React.useCallback(() => {
+  const openInNewPane = useCallback(() => {
     if (!routerContext || !id || !type) {
       return
     }
