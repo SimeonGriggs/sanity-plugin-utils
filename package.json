@@ -55,9 +55,10 @@
     "format": "prettier --write --cache --ignore-unknown ."
   },
   "dependencies": {
-    "@sanity/icons": "^2.11.8",
-    "@sanity/incompatible-plugin": "^1.0.4",
-    "styled-components": "^6.1.6"
+    "@sanity/icons": "^3.5.3",
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "@sanity/ui": "^2.10.11",
+    "react-fast-compare": "^3.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -66,7 +67,6 @@
     "@sanity/plugin-kit": "^3.1.10",
     "@sanity/semantic-release-preset": "^4.1.7",
     "@types/react": "^18.3.3",
-    "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",
@@ -84,18 +84,16 @@
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
     "rimraf": "^4.4.1",
-    "sanity": "^3.43.0",
+    "sanity": "^3.67.1",
     "semantic-release": "^22.0.0",
+    "styled-components": "^6.1.6",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@sanity/ui": "^1.0 || ^2.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-fast-compare": "^3.2.2",
+    "react": "^18 || ^19",
     "rxjs": "^7.8.1",
     "sanity": "^3.43.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1"
   },
   "engines": {
     "node": ">=18"
