@@ -1,6 +1,6 @@
-import React, {useRef} from 'react'
-import {Box, Text, Menu, MenuItem, TextInput, Flex, Badge} from '@sanity/ui'
 import {AddCircleIcon, RemoveCircleIcon, RestoreIcon} from '@sanity/icons'
+import {Badge, Box, Flex, Menu, MenuItem, Text, TextInput} from '@sanity/ui'
+import {type ChangeEvent, useRef, useState} from 'react'
 import {UserAvatar} from 'sanity'
 
 import {UserExtended} from '../../hooks/useProjectUsers'
@@ -60,7 +60,7 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
   } = props
   const labels = props?.labels ? {...LABELS, ...props.labels} : LABELS
 
-  const [searchString, setSearchString] = React.useState('')
+  const [searchString, setSearchString] = useState('')
   const searchResults = searchUsers(userList || [], searchString)
 
   const me = userList.find((u) => u.isCurrentUser)
@@ -75,7 +75,7 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
   //   }
   // }, [open])
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchString(event.target.value)
   }
 

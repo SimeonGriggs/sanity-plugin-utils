@@ -17,22 +17,19 @@
   "license": "MIT",
   "author": "Simeon Griggs <simeon@sanity.io>",
   "type": "module",
+  "sideEffects": false,
+  "browserslist": "extends @sanity/browserslist-config",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
       "source": "./src/index.ts",
-      "require": "./lib/index.cjs",
-      "node": {
-        "import": "./lib/index.cjs.js"
-      },
       "import": "./lib/index.js",
+      "require": "./lib/index.cjs",
       "default": "./lib/index.js"
     },
     "./package.json": "./package.json"
   },
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
-  "source": "./src/index.ts",
   "types": "./lib/index.d.ts",
   "files": [
     "lib",
@@ -41,8 +38,7 @@
     "v2-incompatible.js"
   ],
   "scripts": {
-    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
-    "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
     "clean": "rimraf lib",
     "compile": "tsc --noEmit",
     "eslint": "eslint --ext=.js,.jsx,.mjs,.ts,.tsx --quiet",
@@ -50,23 +46,23 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --quiet --fix",
     "prepare": "husky install",
-    "prepublishOnly": "run-s build",
+    "prepublishOnly": "npm run build",
     "watch": "pkg-utils watch --strict",
     "format": "prettier --write --cache --ignore-unknown ."
   },
   "dependencies": {
-    "@sanity/icons": "^2.11.8",
-    "@sanity/incompatible-plugin": "^1.0.4",
-    "styled-components": "^6.1.6"
+    "@sanity/icons": "^3.5.3",
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "@sanity/ui": "^2.10.11",
+    "react-fast-compare": "^3.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@sanity/pkg-utils": "^3.3.5",
-    "@sanity/plugin-kit": "^3.1.10",
+    "@sanity/pkg-utils": "^6.12.0",
+    "@sanity/plugin-kit": "^4.0.18",
     "@sanity/semantic-release-preset": "^4.1.7",
     "@types/react": "^18.3.3",
-    "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",
@@ -84,18 +80,16 @@
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
     "rimraf": "^4.4.1",
-    "sanity": "^3.43.0",
+    "sanity": "^3.67.1",
     "semantic-release": "^22.0.0",
+    "styled-components": "^6.1.6",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@sanity/ui": "^1.0 || ^2.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-fast-compare": "^3.2.2",
+    "react": "^18 || ^19",
     "rxjs": "^7.8.1",
     "sanity": "^3.43.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1"
   },
   "engines": {
     "node": ">=18"

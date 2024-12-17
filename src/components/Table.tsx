@@ -1,6 +1,6 @@
-import {PropsWithChildren} from 'react'
-import styled, {css} from 'styled-components'
-import {Card, CardProps} from '@sanity/ui'
+import {Card, type CardProps} from '@sanity/ui'
+import type {PropsWithChildren} from 'react'
+import {css, styled} from 'styled-components'
 
 // Wrappers required because of bug with passing down "as" prop
 // https://github.com/styled-components/styled-components/issues/2449
