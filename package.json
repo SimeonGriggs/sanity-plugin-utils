@@ -17,22 +17,19 @@
   "license": "MIT",
   "author": "Simeon Griggs <simeon@sanity.io>",
   "type": "module",
+  "sideEffects": false,
+  "browserslist": "extends @sanity/browserslist-config",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
       "source": "./src/index.ts",
-      "require": "./lib/index.cjs",
-      "node": {
-        "import": "./lib/index.cjs.js"
-      },
       "import": "./lib/index.js",
+      "require": "./lib/index.cjs",
       "default": "./lib/index.js"
     },
     "./package.json": "./package.json"
   },
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
-  "source": "./src/index.ts",
   "types": "./lib/index.d.ts",
   "files": [
     "lib",
@@ -41,8 +38,7 @@
     "v2-incompatible.js"
   ],
   "scripts": {
-    "prebuild": "npm run clean && plugin-kit verify-package --silent && pkg-utils",
-    "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
     "clean": "rimraf lib",
     "compile": "tsc --noEmit",
     "eslint": "eslint --ext=.js,.jsx,.mjs,.ts,.tsx --quiet",
@@ -50,7 +46,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --quiet --fix",
     "prepare": "husky install",
-    "prepublishOnly": "run-s build",
+    "prepublishOnly": "npm run build",
     "watch": "pkg-utils watch --strict",
     "format": "prettier --write --cache --ignore-unknown ."
   },
@@ -63,8 +59,8 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@sanity/pkg-utils": "^3.3.5",
-    "@sanity/plugin-kit": "^3.1.10",
+    "@sanity/pkg-utils": "^6.12.0",
+    "@sanity/plugin-kit": "^4.0.18",
     "@sanity/semantic-release-preset": "^4.1.7",
     "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
