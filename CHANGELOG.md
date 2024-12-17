@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.6...v1.6.7) (2024-12-17)
+
+### Bug Fixes
+
+- make react 19 compatible ([801900c](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/801900cc228876bc762736194b30158401e0ef78))
+
 ## [1.6.6](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.5...v1.6.6) (2024-10-14)
 
 ### Bug Fixes
