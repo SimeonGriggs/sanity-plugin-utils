@@ -1,5 +1,3 @@
-> This is a **Sanity Studio v3** plugin.
-
 ## Installation
 
 ```sh
@@ -34,10 +32,13 @@ The `data` variable will be constantly updated as changes are made to the data r
 import {useListeningQuery} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
-  const {data, loading, error} = useListeningQuery<SanityDocument[]>(`*[_type == $type]`, {
-    params: {type: 'pet'},
-    initialValue: [],
-  })
+  const {data, loading, error} = useListeningQuery<SanityDocument[]>(
+    `*[_type == $type]`,
+    {
+      params: {type: 'pet'},
+      initialValue: [],
+    }
+  )
 
   if (loading) {
     return <Spinner />
@@ -93,11 +94,7 @@ import {useOpenInNewPane} from 'sanity-plugin-utils'
 export default function SidePetOpener(pet: SanityDocument) {
   const openInNewPane = useOpenInNewPane(pet._id, pet._type)
 
-  return (
-    <Button onClick={() => openInNewPane()}>
-      {pet.title}
-    </Button>
-  )
+  return <Button onClick={() => openInNewPane()}>{pet.title}</Button>
 }
 ```
 
@@ -117,7 +114,10 @@ export default function PetPics(pet: SanityDocument) {
     <ul>
       {pet.pics.map((pic) => (
         <li key={pic._key}>
-          <img src={builder.source(pic).width(200).height(200).url()} alt={pic.altText} />
+          <img
+            src={builder.source(pic).width(200).height(200).url()}
+            alt={pic.altText}
+          />
         </li>
       ))}
     </ul>
@@ -127,7 +127,7 @@ export default function PetPics(pet: SanityDocument) {
 
 ### useImageUrlBuilderImage()
 
-As above, but pre-configured with an image source. 
+As above, but pre-configured with an image source.
 
 Useful if you only have one image in your component.
 
@@ -149,22 +149,42 @@ Component for consistently displaying feedback in a card with a title, text and 
 import {Feedback, useListeningQuery} from 'sanity-plugin-utils'
 
 export default function DocumentList() {
-  const {data, loading, error} = useListeningQuery(`*[_type == "task" && !complete]`)
+  const {data, loading, error} = useListeningQuery(
+    `*[_type == "task" && !complete]`
+  )
 
   if (loading) {
-    return <Feedback tone="primary" title="Please hold" description="Fetching tasks..." />
+    return (
+      <Feedback
+        tone="primary"
+        title="Please hold"
+        description="Fetching tasks..."
+      />
+    )
   }
 
   if (error) {
     return (
-      <Feedback tone="critical" title="There was an error" description="Please try again later" />
+      <Feedback
+        tone="critical"
+        title="There was an error"
+        description="Please try again later"
+      />
     )
   }
 
   return data?.length > 0 ? (
-    <Feedback tone="caution" title="There are unfinished tasks" description="Please get to work" />
+    <Feedback
+      tone="caution"
+      title="There are unfinished tasks"
+      description="Please get to work"
+    />
   ) : (
-    <Feedback tone="success" title="You're all done" description="You should feel accomplished" />
+    <Feedback
+      tone="success"
+      title="You're all done"
+      description="You should feel accomplished"
+    />
   )
 }
 ```
@@ -208,7 +228,7 @@ export default function Report(documents) {
 
 ### `UserSelectMenu`
 
-A Menu component for searching and interacting with users. Requires Users to be passed into the component. 
+A Menu component for searching and interacting with users. Requires Users to be passed into the component.
 
 ```tsx
 import {UserSelectMenu} from 'sanity-plugin-utils'
@@ -216,7 +236,7 @@ import {UserSelectMenu} from 'sanity-plugin-utils'
 export default function Report() {
   const users = useProjectUsers({apiVersion: `2023-01-01`})
   const [selectedUsers, setSelectedUsers] = useState([])
-  
+
   return (
     <UserSelectMenu
       userList={users}
