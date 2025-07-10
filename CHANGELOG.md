@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.8](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.7...v1.6.8) (2025-07-10)
+
+### Bug Fixes
+
+- bump sanity dep ranges ([5a053ba](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/5a053ba4a3017540b7c5aa4407afa04a10087778))
+
 ## [1.6.7](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.6...v1.6.7) (2024-12-17)
 
 ### Bug Fixes
