@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sanity-plugin-utils": "file:../",
+    "sanity": "4.0.0-0"
+  }
+}
