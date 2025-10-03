@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.8...v1.7.0) (2025-10-03)
+
+### Features
+
+- **deps:** update all major dependencies ([4800299](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/4800299692ce5313109cecc93c472827c28958bc))
+
 ## [1.6.8](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.7...v1.6.8) (2025-07-10)
 
 ### Bug Fixes
