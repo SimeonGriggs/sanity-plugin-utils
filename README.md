@@ -1,9 +1,3 @@
-## Installation
-
-```sh
-npm install sanity-plugin-utils
-```
-
 # sanity-plugin-utils
 
 Handy hooks and clever components for Sanity Studio v3.
