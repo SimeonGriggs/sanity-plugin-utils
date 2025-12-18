@@ -5,6 +5,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.7.0...v1.7.1) (2025-12-18)
+
+### Bug Fixes
+
+- `rm -rf node_modules && rm package-lock.json && npm i` ([b460002](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/b460002d4743d1e31e46ed0d83454d774ca0be46))
+- ts error ([62f36e2](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/62f36e28c3da71008f50fc7c18f6440345747706))
+- update lockfile ([f569be5](https://github.com/SimeonGriggs/sanity-plugin-utils/commit/f569be571ada1c237685139257fdbebfdee10f67))
+
 ## [1.7.0](https://github.com/SimeonGriggs/sanity-plugin-utils/compare/v1.6.8...v1.7.0) (2025-10-03)
 
 ### Features
