@@ -1,3 +1,9 @@
+> ⚠️ **Repository moved**
+>
+> `sanity-plugin-utils` is now maintained in the [sanity-io/plugins](https://github.com/sanity-io/plugins) monorepo at [`plugins/sanity-plugin-utils`](https://github.com/sanity-io/plugins/tree/HEAD/plugins/sanity-plugin-utils).
+>
+> This repository is archived.
+
 # sanity-plugin-utils
 
 Handy hooks and clever components for Sanity Studio v3.
